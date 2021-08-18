@@ -19,5 +19,10 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     // return view('welcome');
-    echo "This is an about page";
+   return view('about');
+});
+
+Route::get('/contact', function () {
+    // return view('welcome');
+   return view('contact');
 });
