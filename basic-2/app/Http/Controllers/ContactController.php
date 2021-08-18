@@ -8,6 +8,6 @@ class ContactController extends Controller
 {
     public function index()
     {
-        echo "This is our asdasdasContact page";
+        return view('contact');
     }
 }
