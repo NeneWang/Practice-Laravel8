@@ -3,6 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use GuzzleHttp\Middleware;
+
 // use App\Http\Controllers\UserController;
 
 /*
@@ -20,16 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function(){
+    echo "This is Home Page";
+});
+
 Route::get('/about', function () {
     // return view('welcome');
    return view('about');
-});
-
-// Route::get('/contact', function () {
-//     // return view('welcome');
-//    return view('contact');
-// });
-
-// Route::get('/contact', 'ContactController@index');
+})->Middleware('age');
 
 Route::get('/contact', [ContactController::class, 'index']);
+
+
