@@ -31,6 +31,7 @@ Route::get('/about', function () {
    return view('about');
 })->Middleware('age');
 
-Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index'])->name('con');
+
 
 
