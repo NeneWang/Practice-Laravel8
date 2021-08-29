@@ -17,7 +17,7 @@
                 <input name="category_name" type="email" type="email" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
 
-                @error('cateogry_name')
+                @error('category_name')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
 
