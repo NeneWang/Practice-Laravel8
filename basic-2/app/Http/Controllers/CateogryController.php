@@ -15,7 +15,9 @@ class CateogryController extends Controller
     {
         $validatedData = $request->validate([
             'category_name' => 'required|unique:posts|max:255',
-            'body'=>'required',
+            'body' => 'required',
+        ], [
+            'category_name.required' => 'Please Input Category Name',
         ]);
     }
 }
