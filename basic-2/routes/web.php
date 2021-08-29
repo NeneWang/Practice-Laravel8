@@ -38,6 +38,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
 Route::get('/category/all', [CateogryController::class, 'AllCat'])->name('all.category');
 
+Route::post('/category/add', [CateogryController::class, 'AddCat'])->name('store.category');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
