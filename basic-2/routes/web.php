@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CateogryController;
 use GuzzleHttp\Middleware;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +35,9 @@ Route::get('/about', function () {
 })->Middleware('age');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
+
+Route::get('/category/all', [CateogryController::class, 'AllCat'])->name('all.category');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
