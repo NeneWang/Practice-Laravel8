@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use GuzzleHttp\Middleware;
+use App\Models\User;
 
 // use App\Http\Controllers\UserController;
 
@@ -33,9 +34,11 @@ Route::get('/about', function () {
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
-
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+
+    $users = User::all();
+    return view('dashboard', compact('users'));
 })->name('dashboard');
+
+
+
