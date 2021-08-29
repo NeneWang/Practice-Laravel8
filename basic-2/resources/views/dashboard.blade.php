@@ -2,6 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Hi... <b>{{Auth::user()->name}}</b>
+            <b style="float:right;" >Total Users <span style="color:red;" class="badge badge-danger" >{{ count($users) }}</span> </b>
         </h2>
     </x-slot>
 
