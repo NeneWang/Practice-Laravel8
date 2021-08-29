@@ -14,20 +14,23 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">SL No</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Mail</th>
                                     <th scope="col">Created at</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php($i = 1)
                                 @foreach($users as $user)
 
-                                <tr>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->created_at}}</td>
-                                </tr>
+                                    <tr>
+                                        <td scope="row">{{$i}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->created_at}}</td>
+                                    </tr>
+                                @php($i++)
 
                                 @endforeach
                             </tbody>
