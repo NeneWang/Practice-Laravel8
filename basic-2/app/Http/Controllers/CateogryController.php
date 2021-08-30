@@ -17,13 +17,14 @@ class CateogryController extends Controller
         return view('admin.category.index');
     }
 
-    public function AddCat(Request $request)
-    {
+    public function AddCat(Request $request){
         $validatedData = $request->validate([
             'category_name' => 'required|unique:categories|max:255',
-        ], [
+            
+        ],
+        [
             'category_name.required' => 'Please Input Category Name',
-            'category_name.max' => 'Category has to be less than 255 chars'
+            'category_name.max' => 'Category Less Then 255Chars', 
         ]);
 
         Category::insert([
@@ -31,15 +32,20 @@ class CateogryController extends Controller
             'user_id' => Auth::user()->id,
             'created_at' => Carbon::now()
         ]);
+
         // $category = new Category;
         // $category->category_name = $request->category_name;
         // $category->user_id = Auth::user()->id;
         // $category->save();
 
+        // $data = array();
+        // $data['category_name'] = $request->category_name;
+        // $data['user_id'] = Auth::user()->id;
+        // DB::table('categories')->insert($data);
+ 
+        return Redirect()->back()->with('success','Category Inserted Successfull');
 
-        return Redirect()->back()->with('Success', 'Category Inserted Successfull');
     }
-
     public function Update(Request $request ,$id){
         // $update = Category::find($id)->update([
         //     'category_name' => $request->category_name,
