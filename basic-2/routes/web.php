@@ -38,6 +38,8 @@ Route::post('/category/add', [CateogryController::class, 'AddCat'])->name('store
 Route::get('/category/edit/{id}', [CateogryController::class, 'Edit']);
 Route::post('/category/update/{id}', [CateogryController::class, 'Update']);
 
+Route::get('/softdelete/category/{id}', [CateogryController::class, 'SoftDelete']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
     // $users = User::all();
