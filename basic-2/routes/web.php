@@ -36,7 +36,7 @@ Route::post('/category/add', [CateogryController::class, 'AddCat'])->name('store
 
 
 Route::get('/category/edit/{id}', [CateogryController::class, 'Edit']);
-Route::post('/category/edit/{id}', [CateogryController::class, 'Update']);
+Route::post('/category/update/{id}', [CateogryController::class, 'Update']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
