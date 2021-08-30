@@ -64,8 +64,13 @@
                                     <td> {{ $category->category_name }} </td>
                                     <td> {{ $category->user_id }} </td>
                                     <td>
-                                        @if($category->create_at)
-                                        {{ $category->created_at->diffForHumans() }}
+                                        @if( $category->create_at == NULL )
+                                            <span class="text-danger">
+                                                No date Set
+                                            </span>
+                                        @else
+                                            {{ $category->created_at->diffForHumans() }}
+                                        @endif
                                     </td>
 
                                 </tr>
