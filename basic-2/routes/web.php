@@ -35,6 +35,9 @@ Route::get('/category/all', [CateogryController::class, 'AllCat'])->name('all.ca
 Route::post('/category/add', [CateogryController::class, 'AddCat'])->name('store.category');
 
 
+Route::get('/category/edit/{id}', [CateogryController::class, 'Edit']);
+Route::post('/category/edit/{id}', [CateogryController::class, 'Update']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
     // $users = User::all();

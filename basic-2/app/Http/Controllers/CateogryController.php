@@ -58,6 +58,14 @@ class CateogryController extends Controller
 
         return Redirect()->back()->with('success', 'Category Inserted Successfull');
     }
+
+    public function Edit($id){
+        $categories = Category::find($id);
+        return view('admin.category.edit', compact('categories'));
+
+    }
+
+
     public function Update(Request $request, $id)
     {
         // $update = Category::find($id)->update([
