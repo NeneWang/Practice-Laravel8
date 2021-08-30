@@ -14,11 +14,13 @@ class CateogryController extends Controller
 {
     public function AllCat()
     {
-        $categories = DB::table('categories')->join('users', 'categories.user_id');
+        $categories = DB::table('categories')->join('users', 'categories.user_id', 'users.id')
+            ->select('categories.*', 'user');
+
         $categories = Category::latest()->paginate(10);
         $trachCat = Category::onlyTrashed()->latest()->paginate(3);
         // $categories = DB::table('categories')->latest()->paginate(5);
-        return view('admin.category.index', compact('categories','trachCat'));
+        return view('admin.category.index', compact('categories', 'trachCat'));
     }
 
     public function AddCat(Request $request)
