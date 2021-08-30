@@ -17,7 +17,7 @@ class CateogryController extends Controller
     public function AddCat(Request $request)
     {
         $validatedData = $request->validate([
-            'category_name' => 'required|unique:posts|max:255',
+            'category_name' => 'required|unique:categories|max:255',
             'body' => 'required',
         ], [
             'category_name.required' => 'Please Input Category Name',
@@ -25,8 +25,8 @@ class CateogryController extends Controller
         ]);
 
         Category::insert([
-            'category_name'=>$request->category_name,
-            'user_id' => 'Auth::user()->id',
+            'category_name'=> $request->category_name,
+            'user_id' => Auth::user()->id,
             'created_at'=>Carbon::now(),
         ]);
 
