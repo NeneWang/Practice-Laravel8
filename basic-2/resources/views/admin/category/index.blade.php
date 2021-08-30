@@ -66,7 +66,7 @@
                                     <td> {{ $category->category_name }} </td>
                                     <td> {{ $category->user->name }} </td>
                                     <td>
-                                        @if( $category->create_at == NULL )
+                                        @if( $category->created_at == NULL )
                                         <span class="text-danger">
                                             No date Set
                                         </span>
