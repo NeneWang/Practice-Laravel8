@@ -9,31 +9,32 @@
     <div class="">
         <div class="col-md-4">
             <div class="card">
-                 <div class="card-header"> Add Category </div>
-                 <div class="card-body">
-                 
-                
-                
-                 <form action="{{ route('store.category') }}" method="POST">
-                 @csrf
-         <div class="form-group">
-           <label for="exampleInputEmail1">Category Name</label>
-           <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-       
-                 @error('category_name')
-                      <span class="text-danger"> {{ $message }}</span>
-                 @enderror
-       
-         </div>
-            
-         <button type="submit" class="btn btn-primary">Add Category</button>
-       </form>
-       
-              </div>
-       
-           </div>
-         </div> 
-        
+                <div class="card-header"> Add Category </div>
+                <div class="card-body">
+
+
+
+                    <form action="{{ route('store.category') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Category Name</label>
+                            <input type="text" name="category_name" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+
+                            @error('category_name')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
 
 
 
@@ -48,20 +49,24 @@
                             <thead>
                                 <tr>
                                     <th scope="col">SL No</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Mail</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">User</th>
                                     <th scope="col">Created at</th>
                                 </tr>
                             </thead>
                             <tbody>
 
+                                @foreach($categories as $category)
+
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td> {{ $category->category_name }} </td>
+                                    <td> {{ $category->user_id }} </td>
+                                    <td> {{ $category->created_at }} </td>
 
                                 </tr>
+
+                                @endforeach
+
                         </table>
                     </div>
                 </div>
