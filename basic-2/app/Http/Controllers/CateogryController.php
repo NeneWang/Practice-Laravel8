@@ -14,7 +14,8 @@ class CateogryController extends Controller
 {
     public function AllCat()
     {
-        return view('admin.category.index');
+        $category = Category::all();
+        return view('admin.category.index', compact('categories'));
     }
 
     public function AddCat(Request $request){
