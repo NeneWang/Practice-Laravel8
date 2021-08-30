@@ -14,7 +14,7 @@
             @csrf
             <div class="form-group">
                 <label for="exampleInputEmail1">category Name</label>
-                <input name="category_name" type="email" type="email" class="form-control" id="exampleInputEmail1"
+                <input name="category_name" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
 
                 @error('category_name')
