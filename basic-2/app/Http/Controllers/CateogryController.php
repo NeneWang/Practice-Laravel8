@@ -16,8 +16,9 @@ class CateogryController extends Controller
     {
         $categories = DB::table('categories')
             ->join('users', 'categories.user_id', 'users.id')
-            ->select('categories.*', 'user.name')
+            ->select('categories.*', 'users.name')
             ->latest()->paginate(5);
+
 
         $categories = Category::latest()->paginate(10);
         $trachCat = Category::onlyTrashed()->latest()->paginate(3);
