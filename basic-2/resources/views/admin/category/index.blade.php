@@ -56,12 +56,17 @@
                             </thead>
                             <tbody>
 
+                                @php($i = 1)
                                 @foreach($categories as $category)
 
                                 <tr>
+                                    <th scope="row"> {{$i++}} </th>
                                     <td> {{ $category->category_name }} </td>
                                     <td> {{ $category->user_id }} </td>
-                                    <td> {{ $category->created_at }} </td>
+                                    <td>
+                                        @if($category->create_at)
+                                        {{ $category->created_at->diffForHumans() }}
+                                    </td>
 
                                 </tr>
 
