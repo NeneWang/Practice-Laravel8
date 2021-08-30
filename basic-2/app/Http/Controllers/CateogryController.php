@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CateogryController extends Controller
 {
@@ -38,4 +39,21 @@ class CateogryController extends Controller
 
         return Redirect()->back()->with('Success', 'Category Inserted Successfull');
     }
+
+    public function Update(Request $request ,$id){
+        // $update = Category::find($id)->update([
+        //     'category_name' => $request->category_name,
+        //     'user_id' => Auth::user()->id
+
+        // ]);
+        
+        $data = array();
+        $data['category_name'] = $request->category_name;
+        $data['user_id'] = Auth::user()->id;
+        DB::table('categories')->where('id',$id)->update($data);
+
+        return Redirect()->route('all.category')->with('success','Category Updated Successfull');
+
+    }
+
 }
