@@ -15,18 +15,23 @@ class CateogryController extends Controller
     public function AllCat()
     {
         $categories = Category::all();
+        $categories = DB::table('categories')->latest()->get();
         return view('admin.category.index', compact('categories'));
     }
 
-    public function AddCat(Request $request){
-        $validatedData = $request->validate([
-            'category_name' => 'required|unique:categories|max:255',
-            
-        ],
-        [
-            'category_name.required' => 'Please Input Category Name',
-            'category_name.max' => 'Category Less Then 255Chars', 
-        ]);
+    public function AddCat(Request $request)
+    {
+
+        $validatedData = $request->validate(
+            [
+                'category_name' => 'required|unique:categories|max:255',
+
+            ],
+            [
+                'category_name.required' => 'Please Input Category Name',
+                'category_name.max' => 'Category Less Then 255Chars',
+            ]
+        );
 
         Category::insert([
             'category_name' => $request->category_name,
@@ -43,24 +48,22 @@ class CateogryController extends Controller
         // $data['category_name'] = $request->category_name;
         // $data['user_id'] = Auth::user()->id;
         // DB::table('categories')->insert($data);
- 
-        return Redirect()->back()->with('success','Category Inserted Successfull');
 
+        return Redirect()->back()->with('success', 'Category Inserted Successfull');
     }
-    public function Update(Request $request ,$id){
+    public function Update(Request $request, $id)
+    {
         // $update = Category::find($id)->update([
         //     'category_name' => $request->category_name,
         //     'user_id' => Auth::user()->id
 
         // ]);
-        
+
         $data = array();
         $data['category_name'] = $request->category_name;
         $data['user_id'] = Auth::user()->id;
-        DB::table('categories')->where('id',$id)->update($data);
+        DB::table('categories')->where('id', $id)->update($data);
 
-        return Redirect()->route('all.category')->with('success','Category Updated Successfull');
-
+        return Redirect()->route('all.category')->with('success', 'Category Updated Successfull');
     }
-
 }
