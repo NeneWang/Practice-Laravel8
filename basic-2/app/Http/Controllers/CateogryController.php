@@ -15,7 +15,7 @@ class CateogryController extends Controller
     public function AllCat()
     {
         $categories = Category::all();
-        $categories = DB::table('categories')->latest()->get();
+        $categories = DB::table('categories')->latest()->paginate(5);
         return view('admin.category.index', compact('categories'));
     }
 

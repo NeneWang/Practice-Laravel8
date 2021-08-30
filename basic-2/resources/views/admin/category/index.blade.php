@@ -54,6 +54,8 @@
                                     <th scope="col">Created at</th>
                                 </tr>
                             </thead>
+
+
                             <tbody>
 
                                 @php($i = 1)
@@ -65,19 +67,23 @@
                                     <td> {{ $category->user_id }} </td>
                                     <td>
                                         @if( $category->create_at == NULL )
-                                            <span class="text-danger">
-                                                No date Set
-                                            </span>
+                                        <span class="text-danger">
+                                            No date Set
+                                        </span>
                                         @else
-                                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                        {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
                                         @endif
                                     </td>
 
                                 </tr>
 
                                 @endforeach
-
                         </table>
+
+                        {{ $categories->links() }}
+
+
+                        
                     </div>
                 </div>
             </div>
