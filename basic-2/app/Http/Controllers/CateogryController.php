@@ -14,7 +14,7 @@ class CateogryController extends Controller
 {
     public function AllCat()
     {
-        $categories = DB::table('');
+        $categories = DB::table('categories')->join('users', 'categories.user_id');
         $categories = Category::latest()->paginate(10);
         $trachCat = Category::onlyTrashed()->latest()->paginate(3);
         // $categories = DB::table('categories')->latest()->paginate(5);
