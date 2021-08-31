@@ -82,14 +82,14 @@
 
 
 
-                            <form action="{{ route('store.category') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Brand Name</label>
-                                    <input type="text" name="category_name" class="form-control" id="exampleInputEmail1"
+                                    <input type="text" name="brand_name" class="form-control" id="exampleInputEmail1"
                                         aria-describedby="emailHelp">
 
-                                    @error('category_name')
+                                    @error('brand_name')
                                     <span class="text-danger"> {{ $message }}</span>
                                     @enderror
 
