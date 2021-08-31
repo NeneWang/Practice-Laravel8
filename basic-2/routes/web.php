@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CateogryController;
@@ -41,6 +41,10 @@ Route::post('/category/update/{id}', [CateogryController::class, 'Update']);
 Route::get('/softdelete/category/{id}', [CateogryController::class, 'SoftDelete']);
 Route::get('/category/restore/{id}', [CateogryController::class, 'Restore']);
 Route::get('/pdelete/category/{id}', [CateogryController::class, 'Pdelete']);
+
+
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
