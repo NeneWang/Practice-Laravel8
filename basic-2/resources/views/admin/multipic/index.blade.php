@@ -32,35 +32,31 @@
 
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header"> Multi Image </div>
-                        <div class="card-body">
-
-
-
-                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                          
-                                <div class="form-group pb-4">
-                                    <label for="exampleInputEmail1">Brand Image</label>
-                                    <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                
-                                          @error('image')
-                                               <span class="text-danger"> {{ $message }}</span>
-                                          @enderror
-                                
-                                  </div>
-                                
-                                
-                                
-                                     
-                                  <button type="submit" class="btn btn-primary">Add Image</button>
-                                
-                            </form>
-
-                        </div>
-
+                      <div class="card-header"> Multi Image </div>
+                      <div class="card-body">
+            
+                        <form action="{{ route('store.image') }}" method="POST" enctype="multipart/form-data">
+                          @csrf
+            
+            
+            
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Multi Image</label>
+                            <input type="file" name="image[]" class="form-control" id="exampleInputEmail1"
+                              aria-describedby="emailHelp" multiple="">
+            
+                            @error('image')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
+            
+                          </div>
+                          <button type="submit" class="btn btn-primary">Add Image</button>
+                        </form>
+            
+                      </div>
+            
                     </div>
-                </div>
+                  </div>
 
 
 
