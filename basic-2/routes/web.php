@@ -21,13 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function(){
+Route::get('/home', function () {
     echo "This is Home Page";
 });
 
 Route::get('/about', function () {
     // return view('welcome');
-   return view('about');
+    return view('about');
 })->Middleware('age');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
@@ -49,6 +49,8 @@ Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.b
 Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
 
+Route::get('brand/delete/{id}', [BrandController::class, "Delete"]);
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -57,6 +59,3 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();
     return view('dashboard', compact('users'));
 })->name('dashboard');
-
-
-
