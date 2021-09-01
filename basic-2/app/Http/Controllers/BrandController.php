@@ -20,7 +20,7 @@ class BrandController extends Controller
         $validatedData = $request->validate(
             [
                 'brand_name' => 'required|unique:brands|min:4',
-                'brand_image' => 'required|mimes:jpg.jpeg,png',
+                'brand_image' => 'required|mimes:jpg,jpeg,png',
 
             ],
             [
@@ -32,19 +32,28 @@ class BrandController extends Controller
         $brand_image = $request->file('brand_image');
         $name_gen = hexdec(uniqid());
         $img_ext = strtolower($brand_image->getClientOriginalExtension());
-        $img_name = $name_gen.'.'.$img_ext;
+        $img_name = $name_gen . '.' . $img_ext;
         $up_location = 'image/brand/';
-        $last_img = $up_location.$img_name;
-        $brand_image->move($up_location,$img_name);
+        $last_img = $up_location . $img_name;
+        $brand_image->move($up_location, $img_name);
 
         Brand::insert([
             'brand_name' => $request->brand_name,
-            'brand_image'=> $last_img,
+            'brand_image' => $last_img,
             'created_at' => Carbon::now(),
         ]);
-        
-        return Redirect()->back->with('success', 'Brand Inserted Successfully');
 
+        $notification = array(
+            'message' => 'Brand Inserted Successfully',
+            'alert-type' => 'success'
+        );
 
+        return Redirect()->back()->with($notification);
+    }
+
+    public function Edit($id)
+    {
+        $brands = Brand::find($id);
+        return view('admin.brand.edit', compact('brands'));
     }
 }
