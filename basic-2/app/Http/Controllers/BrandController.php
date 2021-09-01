@@ -130,4 +130,13 @@ class BrandController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
+
+
+    // This is for Multi Image All Methods
+
+    public function Multpic(){
+        return view('admin.multipic.index');
+    }
+
+
 }
