@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\Brand;
+use App\Models\Multipic;
 use Image;
 
 class BrandController extends Controller
@@ -135,7 +136,8 @@ class BrandController extends Controller
     // This is for Multi Image All Methods
 
     public function Multpic(){
-        return view('admin.multipic.index');
+        $images = Multipic::all();
+        return view('admin.multipic.index', compact('images'));
     }
 
 
