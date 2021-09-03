@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\DB;
 
 class CateogryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function AllCat()
     {
         $categories = DB::table('categories')
@@ -59,11 +66,11 @@ class CateogryController extends Controller
         return Redirect()->back()->with('success', 'Category Inserted Successfull');
     }
 
-    public function Edit($id){
+    public function Edit($id)
+    {
         // $categories = Category::find($id);
-        $categories = DB::table('categories')->where('id',$id)->first();
+        $categories = DB::table('categories')->where('id', $id)->first();
         return view('admin.category.edit', compact('categories'));
-
     }
 
 
@@ -84,19 +91,21 @@ class CateogryController extends Controller
     }
 
 
-    public function SoftDelete($id){
+    public function SoftDelete($id)
+    {
         $delete = Category::find($id)->delete();
         return Redirect()->back()->with('success', 'Category Soft Delete Successfully');
     }
 
-    public function Restore($id){
+    public function Restore($id)
+    {
         $delete = Category::withTrashed()->find($id)->restore();
         return Redirect()->back()->with('success', 'Category Restore Successfully');
     }
 
-    public function Pdelete($id){
+    public function Pdelete($id)
+    {
         $delete = Category::onlyTrashed()->find($id)->forceDelete();
         return Redirect()->back()->with('success', 'Permanent Delete Successfully');
     }
-
 }
