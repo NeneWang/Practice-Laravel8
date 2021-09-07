@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/home', function () {
-    echo "This is Home Page";
+    return view('home');
 });
 
 Route::get('/about', function () {
@@ -69,3 +69,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+

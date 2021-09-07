@@ -39,7 +39,7 @@
 
 <body>
 
-  @include('layouts.body.header')
+  {{-- @include('layouts.body.header') --}}
 
 
 
@@ -49,7 +49,7 @@
 
   </main><!-- End #main -->
 
-  @include('layouts.body.footer')
+  {{-- @include('layouts.body.footer') --}}
 
 
   <!-- Vendor JS Files -->
