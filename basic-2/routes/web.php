@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\BrandController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CateogryController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -56,6 +58,11 @@ Route::get('brand/delete/{id}', [BrandController::class, "Delete"]);
 Route::get('multi/image/all', [BrandController::class, 'Multpic'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
+// Admin ALL Route
+Route::get('/multi/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+
+
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -70,5 +77,3 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
-
-
