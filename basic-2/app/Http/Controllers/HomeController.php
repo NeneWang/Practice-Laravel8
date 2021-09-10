@@ -12,4 +12,10 @@ class HomeController extends Controller
         $sliders = Slider::latest()->get();
         return view('admin.slider.index', compact('sliders'));
     }
+
+    public function AddSlider(){
+        return view('admin.slider.create');
+    }
+
+
 }
