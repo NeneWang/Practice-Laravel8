@@ -81,7 +81,7 @@ Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logou
 
 // Home About All Route
 
-Route::get('/home/slider', [AboutController::class, 'HomeAbout'])->name('home.about');
+Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
 
 
 
