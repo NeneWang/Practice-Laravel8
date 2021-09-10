@@ -59,6 +59,7 @@ Route::get('multi/image/all', [BrandController::class, 'Multpic'])->name('multi.
 Route::post('/multi/add', [BrandController::class, 'StoreImg'])->name('store.image');
 
 // Admin ALL Route
+Route::get('/home/slider', [HomeController::class, ' HomeSlider'])->name('home.slider');
 Route::get('/multi/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
 
 
