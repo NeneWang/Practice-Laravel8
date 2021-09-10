@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CateogryController;
@@ -78,3 +78,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+// Home About All Route
+
+Route::get('/home/slider', [AboutController::class, 'HomeAbout'])->name('home.about');
+
+
+
