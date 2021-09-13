@@ -84,6 +84,7 @@ Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logou
 Route::get('/home/about', [AboutController::class, 'HomeAbout'])->name('home.about');
 Route::get('/add/about', [AboutController::class, 'AddAbout'])->name('add.about');
 Route::post('/store/about', [AboutController::class, 'StoreAbout'])->name('store.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
 
 
 
