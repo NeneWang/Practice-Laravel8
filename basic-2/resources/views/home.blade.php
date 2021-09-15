@@ -134,7 +134,7 @@
 
     <div class="row portfolio-container" data-aos="fade-up">
 
-      {{-- @foreach($images as $img)
+      @foreach($images as $img)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <img src="{{ $img->image  }}" class="img-fluid" alt="">
       <div class="portfolio-info">
@@ -145,7 +145,7 @@
         <a href="portfolio-details.html" class="details-link" title="More Details"> </a>
       </div>
     </div>
-    @endforeach --}}
+    @endforeach
 
 
 
