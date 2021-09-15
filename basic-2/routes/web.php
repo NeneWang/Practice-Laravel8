@@ -21,12 +21,12 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
+    $abouts = DB::table('home_abouts')->first();
     return view('home', compact('brands', 'abouts'));
 });
 
 Route::get('/home', function () {
     
-    $abouts = DB::table('home_abouts')->get();
     return view('home');
 });
 
