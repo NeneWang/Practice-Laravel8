@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeAbout;
+use App\Models\Multipic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -54,5 +55,10 @@ class AboutController extends Controller
     {
         $delete = HomeAbout::find($id)->Delete();
         return Redirect()->back()->with('success', 'About Deleted Successfully');
+    }
+    public function Portfolio()
+    {
+        $images = Multipic::all();
+        return view('pages.portfolio', compact('images'));
     }
 }
