@@ -95,3 +95,6 @@ Route::get('/about/delete/{id}', [AboutController::class, 'DeleteAbout']);
 
 // Portfolio Page Route
 Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio');
+
+// Amdin Contact Page Route 
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
