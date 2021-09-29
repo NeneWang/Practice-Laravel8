@@ -20,4 +20,17 @@ class ContactController extends Controller
         $contacts = Contact::all();
         return view('admin.contact.index', compact('contacts'));
     }
+
+    public function AdminStoreContact(Request $request){
+   
+        Contact::insert([
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'created_at' => Carbon::now()
+        ]);
+    
+        return Redirect()->route('admin.contact')->with('success','Contact Inserted Successfully');
+    
+     }
 }

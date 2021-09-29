@@ -98,3 +98,7 @@ Route::get('/portfolio', [AboutController::class, 'Portfolio'])->name('portfolio
 
 // Amdin Contact Page Route 
 Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/admin/add/contact', [ContactController::class, 'AdminAddContact'])->name('add.contact');
+
+
+
